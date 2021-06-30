@@ -1,37 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:weightSum="3">
 
-  <!--제스쳐로 입력할때는 View를 사용한다-->
-  <View
-      android:id="@+id/view1"
-      android:layout_width="match_parent"
-      android:layout_height="0dp"
-      android:layout_weight="1"
-      android:background="#03A9F4" />
+<!--  &lt;!&ndash;제스쳐로 입력할때는 View를 사용한다&ndash;&gt;-->
+<!--  <View-->
+<!--      android:id="@+id/view1"-->
+<!--      android:layout_width="match_parent"-->
+<!--      android:layout_height="0dp"-->
+<!--      android:layout_weight="1"-->
+<!--      android:background="#03A9F4" />-->
 
-  <View
-      android:id="@+id/view2"
-      android:layout_width="match_parent"
-      android:layout_height="0dp"
-      android:layout_weight="1"
-      android:background="#FF9800" />
+<!--  <View-->
+<!--      android:id="@+id/view2"-->
+<!--      android:layout_width="match_parent"-->
+<!--      android:layout_height="0dp"-->
+<!--      android:layout_weight="1"-->
+<!--      android:background="#FF9800" />-->
 
-  <ScrollView
-      android:id="@+id/scrollView1"
-      android:layout_width="match_parent"
-      android:layout_height="0dp"
-      android:layout_weight="1">
+<!--  <ScrollView-->
+<!--      android:id="@+id/scrollView1"-->
+<!--      android:layout_width="match_parent"-->
+<!--      android:layout_height="0dp"-->
+<!--      android:layout_weight="1">-->
 
-    <!--무슨 제스쳐를 했는지 설명하기 위한 TextView-->
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FFFFFFFF" />
-  </ScrollView>
-</LinearLayout>
+<!--    &lt;!&ndash;무슨 제스쳐를 했는지 설명하기 위한 TextView&ndash;&gt;-->
+<!--    <TextView-->
+<!--        android:id="@+id/textView1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="#FFFFFFFF" />-->
+<!--  </ScrollView>-->
+  <VideoView
+      android:id="@+id/videoView"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      android:layout_marginTop="0dp"
+      android:layout_marginStart="0dp"
+      android:visibility="visible">
+  </VideoView>
+
+  <ImageView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_gravity="center_vertical"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      android:layout_marginBottom="140dp"
+      android:src="@drawable/a1"
+      android:background="@android:color/transparent">
+  </ImageView>
+  <ImageView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_gravity="center_vertical"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      android:layout_marginBottom="140dp"
+      android:layout_marginStart="-30dp"
+      android:src="@drawable/a2"
+      android:background="@android:color/transparent">
+  </ImageView>
+  <ImageView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_gravity="center_vertical"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      android:layout_marginBottom="140dp"
+      android:src="@drawable/a3"
+      android:layout_marginStart="-23dp"
+      android:background="@android:color/transparent">
+  </ImageView>
+
+  <!--temp HARDWARE-->
+  <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:scaleType="fitStart"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      android:layout_marginTop="0dp"
+      android:layout_marginStart="0dp"
+      android:src="@drawable/hardware"
+      android:background="@android:color/transparent">
+  </ImageView>
+  <!--temp HARDWARE-->
+</androidx.constraintlayout.widget.ConstraintLayout>
+
