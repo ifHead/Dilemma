@@ -85,7 +85,7 @@ public class Riverside_main extends AppCompatActivity {
 
     int touch_cnt = 0;
 
-    boolean[] narr_end = {false, false, false};
+    boolean[] narr_end = {false, false, false, false, false};
     int narr_1_alpha = 0;
     boolean narr_1_flag = true;
     int narr_1_time = 0;
@@ -203,19 +203,20 @@ public class Riverside_main extends AppCompatActivity {
                                 //A4 '중' '지' 동시터치 체크
                                 if(is_ji_prssd && is_jung_prssd && k){
                                     MySoundPlayer.play(MySoundPlayer.A3_SOUND);
+                                    narr_end[2] = true;
                                     k = false;
                                 }
                                 //동시터치가 아니면 각 버튼과 연결된 변수에 false 할당
                                 is_jung_prssd = false;
                                 is_ji_prssd = false;
 
-                                if (narr_3_time > 300) {
-//                                    narr_3_alpha -= 2;
-//                                    if (narr_3_alpha < 0) {
-//                                        narr_3_alpha = 0;
-//                                        narr_3_flag = false;
-//                                        narr_end[2] = true;
-//                                    }
+                                if (narr_end[2]) {
+                                    narr_3_alpha -= 2;
+                                    if (narr_3_alpha < 0) {
+                                        narr_3_alpha = 0;
+                                        narr_3_flag = false;
+                                        narr_end[2] = true;
+                                    }
                                 } else {
                                     narr_3_alpha += 2;
                                     if (narr_3_alpha > 255) {
@@ -223,6 +224,45 @@ public class Riverside_main extends AppCompatActivity {
                                     }
                                 }
                                 thirdThought.setImageAlpha(narr_3_alpha);
+                            }
+                        });
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        thread.start();
+    }
+
+    int raindropY = 10;
+    int raindropAlpha = 255;
+    void raindrop_anim(){
+        ImageView raindrop = (ImageView) findViewById(R.id.raindrop);
+        Handler handler_rain = new Handler();
+        if(narr_end[2]) {
+            raindrop.setVisibility(View.VISIBLE);
+        }
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        handler_rain.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                raindrop.setY(raindropY += 3);
+                                if(raindropY > 1000) {
+                                    raindropY = 10;
+                                }
+                                if(narr_end[3]){
+                                    if(raindropAlpha < 0) {
+                                        raindrop.setVisibility(View.INVISIBLE);
+                                    } else {
+                                        raindrop.setImageAlpha(raindropAlpha--);
+                                    }
+                                }
                             }
                         });
                         Thread.sleep(10);
@@ -310,7 +350,7 @@ public class Riverside_main extends AppCompatActivity {
                     //printString("손가락 뗌 : " + curX + ", " + curY);
                     boolean isLong = curY - raindrop_start > 200;
                     if (isLong && isStraight) {
-//                        Log.d("curY - raindrop_start", Float.toString(curY - raindrop_start));
+                        narr_end[3] = true;
                     } else {
                         if (raindrop_start == 9999) {
 //                            Log.d("not Area", ".");

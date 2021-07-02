@@ -127,6 +127,22 @@
       android:alpha="0"
       ></Button>
 
+  <ImageView
+      android:src="@drawable/raindrop"
+      android:id="@+id/raindrop"
+      android:layout_width="40dp"
+      android:layout_height="60dp"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      android:layout_marginStart="300dp"
+      android:visibility="invisible">
+  </ImageView>
+
+  <ImageView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:src="@drawable/hardware"
+
   <!--temp HARDWARE-->
   <ImageView
       android:layout_width="wrap_content"
