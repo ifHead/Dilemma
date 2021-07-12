@@ -8,9 +8,6 @@ package="com.game.dilemma">
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/Theme.Dilemma">
-    <meta-data
-        android:name="com.google.android.wearable.standalone"
-        android:value="true" />
 
     <activity android:label="@string/title_activity_riverside_main"
         android:name=".Riverside_main"
